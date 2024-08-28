@@ -5,6 +5,8 @@
 const express = require("express");
 const app = express();
 
+require("dotenv").config();
+
 // app.get("/", (req, res) => {
 //   res.send("Hello world");
 // });
@@ -32,6 +34,8 @@ app.set("view engine", "ejs"); //npm i ejs -> templating engine like blade in la
 //   res.render("home.ejs");
 // });
 
+require("./model/index");
+
 app.get("/", (req, res) => {
   const data = {
     name: "Rakesh Joshi",
@@ -53,6 +57,6 @@ app.get("/about", (req, res) => {
 
 app.use(express.static("public/css/"));
 
-app.listen(3306, () => {
+app.listen(4000, () => {
   console.log("Hello project started");
 });
