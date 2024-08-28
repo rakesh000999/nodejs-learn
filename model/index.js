@@ -5,7 +5,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const databaseConfig = require("../config/dbConfig");
 const makeBlogTable = require("./blogModel");
-console.log(databaseConfig.username , "hahahahahh");
+console.log(databaseConfig.username, "hahahahahh");
 
 const sequelize = new Sequelize(
   databaseConfig.db,
@@ -44,6 +44,7 @@ db.sequelize = sequelize;
 // };
 
 db.sequelize.sync({ force: false }).then(() => {
+  //setting true helps to migrate - add or remove columns but drops the data of the table
   console.log("Synced done!");
 });
 
